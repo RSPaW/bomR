@@ -30,12 +30,12 @@ UseCores <- 10
 cl <- makeCluster(UseCores, outfile="")
 registerDoParallel(cl)
 
-foreach(i = 1:length(yrs)) %dopar% {
+#foreach(i = 1:length(yrs)) %dopar% {
   library(httr)
   library(xml2)
   library(RCurl)
   library(here)
-#for (i in 1:length(yrs)) {
+for (i in 1:length(yrs)) {
   dir.create(here("precip", "calib-01day", yrs[i]), showWarnings = FALSE)
   m <- 1
   for (m in 1:12){
@@ -62,5 +62,6 @@ foreach(i = 1:length(yrs)) %dopar% {
       }
     }
   } 
+  cat(yrs[i], "is done\n")
 }
 stopCluster(cl)
