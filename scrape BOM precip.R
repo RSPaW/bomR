@@ -11,6 +11,7 @@ library(terra)
 library(here)
 library(doParallel)
 
+
 # Set the base directory where all the subfolders are located
 base_folder <- "E:\\AGCD\\bomR"
 
